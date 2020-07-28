@@ -1,0 +1,10 @@
+create initial state -> global state accessible to all
+only those components in the provider have access to the global state. so wrap all the components with provider
+AppReducer -> defines how our state should change based on action
+
+Context -> Maintains the state. Create Context using createContext
+
+Reducer -> Defines how the change the state based on actions
+
+Provider -> All the components that will be accessing the global state
+
