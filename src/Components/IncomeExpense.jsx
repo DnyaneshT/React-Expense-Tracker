@@ -1,15 +1,20 @@
-import React from 'react'
+import React,{useContext} from 'react';
+import {GlobalContext} from '../Context/GlobalState';
 
 function IncomeExpense() {
+    const {transactions} = useContext(GlobalContext);
+    const plus = transactions.reduce((tot,t)=>(t.amount>0?tot+=t.amount:tot+=0),0).toFixed(2)
+    const minus = transactions.reduce((tot,t)=>(t.amount<0?tot+=t.amount:tot+=0),0.00).toFixed(2)
+
     return (
-        <div class="inc-exp-container">
+        <div className="inc-exp-container">
         <div>
           <h4>Income</h4>
-          <p id="money-plus" class="money plus">+$0.00</p>
+          <p className="money plus">+${plus}</p>
         </div>
         <div>
           <h4>Expense</h4>
-          <p id="money-minus" class="money minus">-$0.00</p>
+          <p className="money minus">-${Math.abs(minus)}</p>
         </div>
       </div>
     )
